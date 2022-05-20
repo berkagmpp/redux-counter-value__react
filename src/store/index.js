@@ -1,19 +1,19 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const initailState = { counter: 0, showCounter: true };
+const initailConterState = { value: 0, showCounter: true };
 
 const counterSlice = createSlice({
     name: 'counter',
-    initialState: initailState,
+    initialState: initailConterState,
     reducers: {
         increment(state) {
-            state.counter++;    // in Redux tookit, can manipulate state (because toolkit internally translate into immutable code)
+            state.value++;    // in Redux tookit, can manipulate state (because toolkit internally translate into immutable code)
         },                      // it looks mutable state, but which isn't mutating the state
         increse(state, action) {
-            state.counter = state.counter + action.payload;
+            state.value = state.value + action.payload;
         },
         decrement(state) {
-            state.counter--;
+            state.value--;
         },
         toggle(state) {
             state.showCounter = !state.showCounter;     // in Redux tookit, just write state that changed!
@@ -57,9 +57,31 @@ const counterSlice = createSlice({
 //    reducer: counterReducer
 // });
 
+const initailAuthState = {
+    isAuthenticated: false
+};
+
+const authSlice = createSlice({
+    name: 'authentication',
+    initialState: initailAuthState,
+    reducers: {
+        login(state) {
+            state.isAuthenticated = true;
+        },
+        logout(state) {
+            state.isAuthenticated = false;
+        }
+    }
+});
+
 const store = configureStore({
-    reducer: { counter: counterSlice.reducer }   // merge all reducers for making a global main reducer 
+    reducer: { 
+        counter: counterSlice.reducer,
+        authentication: authSlice.reducer
+    }   // merge all reducers for making a global main reducer 
 });
 
 export const counterActions = counterSlice.actions;     //should export actions too!
+export const authActions = authSlice.actions;
+
 export default store;
