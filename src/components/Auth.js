@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { authActions } from '../store';
+import { authActions } from '../store/auth-slice-reducer';
 
 import classes from './Auth.module.css';
 
