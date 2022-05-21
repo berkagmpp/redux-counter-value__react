@@ -5,7 +5,7 @@
 ### What I Applied
 - Provider() from react-redux (index.js)
 - configureStore from @reduxjs/toolkit (store/index.js)
-- createSlice() from react-redux (auth-slice-reducer.js, counter-slice-reducer.js) / splited from store
+- createSlice() from react-redux (auth-slice-reducer.js, counter-slice-reducer.js) / splited from store for easy management
 - useSelector() from react-redux (App.js, Counter.js, Header.js)
 - useDispatch() from react-redux (Auth.js, Counter.js, Header.js)
 - Fragment from react (App.js)
